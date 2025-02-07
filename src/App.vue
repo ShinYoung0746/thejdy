@@ -4,7 +4,8 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+// TypeScript 지원을 위해 lang="ts" 추가
 </script>
 
 <style>
