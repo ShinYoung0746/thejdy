@@ -1,12 +1,21 @@
 <template>
-  <div>
-    <!-- 여기에 새로운 컨텐츠를 추가하세요 -->
+  <div id="app">
+    <header>
+      <!-- 공통 헤더 내용 -->
+    </header>
+    <router-view />
+    <footer>
+      <!-- 공통 푸터 내용 -->
+    </footer>
   </div>
 </template>
 
-<script setup lang="ts">
-// TypeScript 지원을 위해 lang="ts" 추가
+<script>
+export default {
+  name: 'App',
+};
 </script>
 
 <style>
+/* 공통 스타일 */
 </style>
