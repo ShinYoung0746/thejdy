@@ -18,4 +18,5 @@ export default {
 
 <style>
 /* 공통 스타일 */
+@import 'leaflet/dist/leaflet.css';
 </style>

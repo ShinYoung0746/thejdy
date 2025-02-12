@@ -44,6 +44,7 @@
               <li @click="scrollToImage('image15')">기프티콘 서비스 이용절차</li>
             </ul>
           </li>
+          <li @click="scrollToSection('footer')">contact us</li>
         </ul>
       </nav>
     </aside>
@@ -53,6 +54,7 @@
         <button class="menu-btn" @click="toggleSidebar">☰</button>
       </div>
       <div class="image-container" ref="imageContainer">
+        <img ref="main" :src="getImageSrc('main.jpg', 'main.jpg')" alt="Company Image" class="full-image" />
         <img ref="image1" :src="getImageSrc('01.jpg', '03.jpg')" alt="Company Image" class="full-image" />
         <img ref="image2" :src="getImageSrc('04.jpg', '04.jpg')" alt="Company Image" class="full-image" />
         <img ref="image3" src="@/assets/images/05.jpg" alt="Company Image" class="full-image" />
@@ -76,31 +78,57 @@
         <img ref="image21" src="@/assets/images/23.jpg" alt="Company Image" class="full-image" />
         <img ref="image22" src="@/assets/images/24.jpg" alt="Company Image" class="full-image" />
         <img ref="image23" src="@/assets/images/25.jpg" alt="Company Image" class="full-image" />
-        <img ref="image24" src="@/assets/images/26.jpg" alt="Company Image" class="full-image" />
-        <footer class="footer">
+        <div id="map" class="map"></div>
+        <footer ref="footer" class="footer">
           <div class="footer-left">
-            <p>© 2023 바다문자. All rights reserved.</p>
+            <h1>주식회사 더제이디와이</h1>
+            <p>대표이사 김재경</p>
+            <p>사업자번호 391-88-03027</p>
+            <p>경기도 남양주시 순화궁로 418 11층 27호</p>
+            <p>이메일 badasms2@gmail.com</p>
+            <p>Copyright©2023.06 All rights reserved.</p>
           </div>
+          <div class="divider"></div>
           <div class="footer-right">
-            <input type="text" placeholder="고객명" />
-            <input type="text" placeholder="연락처" />
-            <input type="email" placeholder="Email" />
-            <textarea placeholder="문의내용"></textarea>
-            <button>상담신청하기</button>
+            <form @submit.prevent="submitForm">
+              <div class="form-row">
+                <input type="text" v-model="formData.name" placeholder="고객명" required />
+                <input type="text" v-model="formData.contact" placeholder="연락처" required />
+              </div>
+              <input type="email" v-model="formData.email" placeholder="Email" required />
+              <textarea v-model="formData.message" placeholder="문의내용"></textarea>
+              <div class="checkbox-container">
+                <div class="checkbox-label">
+                  <input type="checkbox" v-model="formData.agree" id="agree" required />
+                  <label for="agree">개인정보수집 및 활용동의 <a href="#" @click.prevent="showPrivacyPolicy">[전문보기]</a></label>
+                </div>
+                <button type="submit" class="submit-btn">상담신청하기</button>
+              </div>
+            </form>
           </div>
-      </footer>
-      </div>      
+        </footer>
+      </div>
+      <button class="scroll-top" @click="scrollToTop">▲</button>
     </main>
   </div>
 </template>
 
 <script>
+import L from 'leaflet';
+
 export default {
   data() {
     return {
       isSidebarOpen: false,
       activeSubmenu: null,
       isMobile: window.innerWidth <= 768,
+      formData: {
+        name: '',
+        contact: '',
+        email: '',
+        message: '',
+        agree: false,
+      },
     };
   },
   methods: {
@@ -120,6 +148,12 @@ export default {
         });
       }
     },
+    scrollToSection(sectionRef) {
+      const section = this.$refs[sectionRef];
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
     getImageSrc(mobileImage, desktopImage) {
       const folder = this.isMobile ? 'mobile' : 'images';
       const imageName = this.isMobile ? mobileImage : desktopImage;
@@ -128,9 +162,46 @@ export default {
     checkMobile() {
       this.isMobile = window.innerWidth <= 768;
     },
+    showPrivacyPolicy() {
+      alert(`1. 개인정보의 수집 및 이용 목적
+고객요청사항 확인 및 답변을 위한 연락통지, 처리결과 통보 등을 목적으로 개인정보를 처리합니다.
+
+2. 처리하는 개인정보 항목
+- 필수항목 : 이름, 연락처(접속IP, 쿠키, 이용기록, 접속로그)
+- 선택항목 : 이메일
+
+3. 개인정보의 처리 및 보유 기간
+① 법령에 따른 개인정보 보유.이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유, 이용기간 내에서 개인정보를 처리, 보유합니다.
+② 개인정보의 보유 기간은 5년입니다.`);
+    },
+    scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    submitForm() {
+      if (!this.formData.agree) {
+        alert('개인정보수집 및 활용동의에 체크해주세요.');
+        return;
+      }
+      // 폼 제출 로직
+      alert('상담신청이 완료되었습니다.');
+    },
   },
   mounted() {
     window.addEventListener('resize', this.checkMobile);
+
+    // Leaflet 지도 초기화
+    const map = L.map('map').setView([37.66334366879749, 127.122806246937], 13);
+    map.setMaxBounds([[37, 127], [38, 128]]); // 최대 범위 설정
+
+    L.tileLayer('https://tiles.osm.kr/hot/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap 기여자</a>'
+    }).addTo(map);
+
+    // 마커 추가
+    L.marker([37.66334366879749, 127.122806246937]).addTo(map)
+      .bindPopup('주식회사 더제이디와이')
+      .openPopup();
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.checkMobile);
@@ -218,6 +289,65 @@ nav ul li {
   display: block;
 }
 
+.map {
+  height: 500px; /* 지도의 높이 설정 */
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.checkbox-container {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.footer-right input[type="text"],
+.footer-right input[type="email"],
+.footer-right textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-right button {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
 .menu-btn {
   display: none;
   position: fixed;
@@ -238,8 +368,14 @@ nav ul li {
 .footer {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding: 75px 100px;
   background-color: #f4f4f4;
+}
+
+.divider {
+  width: 1px;
+  background-color: #ccc;
+  margin: 0 20px;
 }
 
 .footer-left {
@@ -250,23 +386,6 @@ nav ul li {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-.footer-right input,
-.footer-right textarea {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.footer-right button {
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -301,6 +420,14 @@ nav ul li {
 
   .footer {
     flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 20px 0;
   }
 
   .footer-left,
@@ -310,3 +437,4 @@ nav ul li {
   }
 }
 </style>
+
