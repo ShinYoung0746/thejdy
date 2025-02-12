@@ -7,15 +7,47 @@
     padding: 0;
 }
 
-/* 반응형 타이포그래피 */
-html {
-    font-size: 100%; /* 기본 폰트 크기 설정 */
+@font-face {
+  font-family: 'CustomFontBold';
+  src: url('@/assets/font/GmarketSansTTFBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CustomFontMedium';
+  src: url('@/assets/font/GmarketSansTTFMedium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'CustomFontLight';
+  src: url('@/assets/font/GmarketSansTTFLight.ttf') format('truetype');
+  font-weight: lighter;
+  font-style: normal;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
+  font-family: 'CustomFontMedium', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+nav ul li {
+  font-family: 'CustomFontBold', sans-serif; /* 상위 카테고리 굵게 */
+  margin: 10px;
+  cursor: pointer;
+}
+
+.submenu li {
+  font-family: 'CustomFontMedium', sans-serif; /* 하위 카테고리 얇게 */
+  font-size: 13px;
+}
+
+/* 반응형 타이포그래피 */
+html {
+    font-size: 100%; /* 기본 폰트 크기 설정 */
 }
 
 /* 반응형 레이아웃 */
