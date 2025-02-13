@@ -82,10 +82,10 @@
         <footer ref="footer" class="footer">
           <div class="footer-left">
             <h1>주식회사 더제이디와이</h1>
-            <p>대표이사 김재경</p>
-            <p>사업자번호 391-88-03027</p>
-            <p>경기도 남양주시 순화궁로 418 11층 27호</p>
-            <p>이메일 badasms2@gmail.com</p>
+            <p>대표이사 : 김재경</p>
+            <p>사업자번호 : 391-88-03027</p>
+            <p>주소 : 경기도 남양주시 순화궁로 418 11층 27호</p>
+            <p>이메일 : badasms2@gmail.com</p>
             <p>Copyright©2023.06 All rights reserved.</p>
           </div>
           <div class="divider"></div>
@@ -108,12 +108,13 @@
           </div>
         </footer>
       </div>
-      <button class="scroll-top" @click="scrollToTop">▲</button>
+      <button class="scroll-top" @click="scrollToMainImage">▲</button>
     </main>
   </div>
 </template>
 
 <script>
+import { db, collection, addDoc, serverTimestamp } from "@/firebase";
 import L from 'leaflet';
 
 export default {
@@ -174,16 +175,32 @@ export default {
 ① 법령에 따른 개인정보 보유.이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유, 이용기간 내에서 개인정보를 처리, 보유합니다.
 ② 개인정보의 보유 기간은 5년입니다.`);
     },
-    scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToMainImage() {
+      const mainImage = this.$refs.main;
+      if (mainImage) {
+        mainImage.scrollIntoView({ behavior: 'smooth' });
+      }
     },
-    submitForm() {
+    async submitForm() {
       if (!this.formData.agree) {
         alert('개인정보수집 및 활용동의에 체크해주세요.');
         return;
       }
-      // 폼 제출 로직
-      alert('상담신청이 완료되었습니다.');
+
+      try {
+        await addDoc(collection(db, "contacts"), {
+          name: this.formData.name,
+          contact: this.formData.contact,
+          email: this.formData.email,
+          message: this.formData.message,
+          timestamp: serverTimestamp()
+        });
+        alert('상담신청이 완료되었습니다.');
+        this.formData = { name: '', contact: '', email: '', message: '', agree: false };
+      } catch (e) {
+        console.error("Error adding document: ", e);
+        alert('오류가 발생했습니다. 다시 시도해주세요.');
+      }
     },
   },
   mounted() {
@@ -203,7 +220,7 @@ export default {
       .bindPopup('주식회사 더제이디와이')
       .openPopup();
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.checkMobile);
   },
 };
@@ -346,6 +363,7 @@ nav ul li {
   width: 40px;
   height: 40px;
   cursor: pointer;
+  z-index: 1000;
 }
 
 .menu-btn {
