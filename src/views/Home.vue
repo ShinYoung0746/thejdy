@@ -9,9 +9,9 @@
             회사소개
             <span class="arrow">{{ activeSubmenu === 'company' ? '▲' : '▼' }}</span>
             <ul v-if="activeSubmenu === 'company'" class="submenu">
-              <li @click="scrollToImage('image1')">회사 소개</li>
-              <li @click="scrollToImage('image2')">주요 연혁</li>
-              <li @click="scrollToImage('image3')">조직도</li>
+              <li @click="scrollToImage('image2')">목차</li>
+              <li @click="scrollToImage('image3')">주요 연혁</li>
+              <li @click="scrollToImage('image1')">조직도</li>
             </ul>
           </li>
           <li @click="toggleSubmenu('service')">
@@ -55,29 +55,29 @@
       </div>
       <div class="image-container" ref="imageContainer">
         <img ref="main" :src="getImageSrc('main.jpg', 'main.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image1" :src="getImageSrc('01.jpg', '03.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image2" :src="getImageSrc('04.jpg', '04.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image3" src="@/assets/images/05.jpg" alt="Company Image" class="full-image" />
-        <img ref="image4" src="@/assets/images/06.jpg" alt="Company Image" class="full-image" />
-        <img ref="image5" src="@/assets/images/07.jpg" alt="Company Image" class="full-image" />
-        <img ref="image6" src="@/assets/images/08.jpg" alt="Company Image" class="full-image" />
-        <img ref="image7" src="@/assets/images/09.jpg" alt="Company Image" class="full-image" />
-        <img ref="image8" src="@/assets/images/10.jpg" alt="Company Image" class="full-image" />
-        <img ref="image9" src="@/assets/images/11.jpg" alt="Company Image" class="full-image" />
-        <img ref="image10" src="@/assets/images/12.jpg" alt="Company Image" class="full-image" />
-        <img ref="image11" src="@/assets/images/13.jpg" alt="Company Image" class="full-image" />
-        <img ref="image12" src="@/assets/images/14.jpg" alt="Company Image" class="full-image" />
-        <img ref="image13" src="@/assets/images/15.jpg" alt="Company Image" class="full-image" />
-        <img ref="image14" src="@/assets/images/16.jpg" alt="Company Image" class="full-image" />
-        <img ref="image15" src="@/assets/images/17.jpg" alt="Company Image" class="full-image" />
-        <img ref="image16" src="@/assets/images/18.jpg" alt="Company Image" class="full-image" />
-        <img ref="image17" src="@/assets/images/19.jpg" alt="Company Image" class="full-image" />
-        <img ref="image18" src="@/assets/images/20.jpg" alt="Company Image" class="full-image" />
-        <img ref="image19" src="@/assets/images/21.jpg" alt="Company Image" class="full-image" />
-        <img ref="image20" src="@/assets/images/22.jpg" alt="Company Image" class="full-image" />
-        <img ref="image21" src="@/assets/images/23.jpg" alt="Company Image" class="full-image" />
-        <img ref="image22" src="@/assets/images/24.jpg" alt="Company Image" class="full-image" />
-        <img ref="image23" src="@/assets/images/25.jpg" alt="Company Image" class="full-image" />
+        <img ref="image2" :src="getImageSrc('02.jpg', '02.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image3" :src="getImageSrc('04.jpg', '04.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image1" :src="getImageSrc('05.jpg', '05.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image4" :src="getImageSrc('06.jpg', '06.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image5" :src="getImageSrc('07.jpg', '07.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image6" :src="getImageSrc('08.jpg', '08.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image7" :src="getImageSrc('09.jpg', '09.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image8" :src="getImageSrc('10.jpg', '10.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image9" :src="getImageSrc('11.jpg', '11.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image10" :src="getImageSrc('12.jpg', '12.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image11" :src="getImageSrc('13.jpg', '13.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image12" :src="getImageSrc('14.jpg', '14.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image13" :src="getImageSrc('15.jpg', '15.jpg')" alt="Company Image" class="full-image" />  
+        <img ref="image14" :src="getImageSrc('16.jpg', '16.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image15" :src="getImageSrc('17.jpg', '17.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image16" :src="getImageSrc('18.jpg', '18.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image17" :src="getImageSrc('19.jpg', '19.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image18" :src="getImageSrc('20.jpg', '20.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image19" :src="getImageSrc('21.jpg', '21.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image20" :src="getImageSrc('22.jpg', '22.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image21" :src="getImageSrc('23.jpg', '23.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image22" :src="getImageSrc('24.jpg', '24.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image23" :src="getImageSrc('25.jpg', '25.jpg')" alt="Company Image" class="full-image" /> 
         <div id="map" class="map"></div>
         <footer ref="footer" class="footer">
           <div class="footer-left">
@@ -115,7 +115,6 @@
 
 <script>
 import { db, collection, addDoc, serverTimestamp } from "@/firebase";
-import L from 'leaflet';
 
 export default {
   data() {
@@ -206,19 +205,36 @@ export default {
   mounted() {
     window.addEventListener('resize', this.checkMobile);
 
-    // Leaflet 지도 초기화
-    const map = L.map('map').setView([37.66334366879749, 127.122806246937], 13);
-    map.setMaxBounds([[37, 127], [38, 128]]); // 최대 범위 설정
+    // Kakao 지도 초기화
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = { 
+            center: new kakao.maps.LatLng(37.66334366879749, 127.122806246937), // 지도의 중심좌표
+            level: 3 // 지도의 확대 레벨
+        };
 
-    L.tileLayer('https://tiles.osm.kr/hot/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap 기여자</a>'
-    }).addTo(map);
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-    // 마커 추가
-    L.marker([37.66334366879749, 127.122806246937]).addTo(map)
-      .bindPopup('주식회사 더제이디와이')
-      .openPopup();
+    // 마커가 표시될 위치입니다 
+    var markerPosition  = new kakao.maps.LatLng(37.66334366879749, 127.122806246937); 
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+        position: markerPosition
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+
+    // 인포윈도우를 생성합니다
+    var infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="padding:5px;">주식회사 더제이디와이</div>' // 인포윈도우에 표시할 내용
+    });
+
+    // 마커에 클릭이벤트를 등록합니다
+    kakao.maps.event.addListener(marker, 'click', function() {
+        // 마커 위에 인포윈도우를 표시합니다
+        infowindow.open(map, marker);  
+    });
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.checkMobile);
