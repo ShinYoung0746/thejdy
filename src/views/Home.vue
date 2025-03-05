@@ -20,28 +20,28 @@
             <ul v-if="activeSubmenu === 'service'" class="submenu">
               <li @click="scrollToImage('image4')">통합 메시지 서비스</li>
               <li @click="scrollToImage('image5')">통합 메시징 시스템 솔루션 임대</li>
-              <li @click="scrollToImage('image6')">카카오 알림톡</li>
-              <li @click="scrollToImage('image7')">RCS</li>
-              <li @click="scrollToImage('image8')">기프티콘</li>
+              <li @click="scrollToImage('image7')">카카오 알림톡</li>
+              <li @click="scrollToImage('image8')">RCS</li>
+              <li @click="scrollToImage('image9')">기프티콘</li>
             </ul>
           </li>
           <li @click="toggleSubmenu('method')">
             서비스 방식
             <span class="arrow">{{ activeSubmenu === 'method' ? '▲' : '▼' }}</span>
             <ul v-if="activeSubmenu === 'method'" class="submenu">
-              <li @click="scrollToImage('image9')">바다문자 플랫폼</li>
-              <li @click="scrollToImage('image10')">알림톡</li>
-              <li @click="scrollToImage('image11')">RCS</li>
-              <li @click="scrollToImage('image12')">서비스 요금</li>
-              <li @click="scrollToImage('image13')">톡톡샵 플랫폼</li>
+              <li @click="scrollToImage('image10')">바다문자 플랫폼</li>
+              <li @click="scrollToImage('image11')">알림톡</li>
+              <li @click="scrollToImage('image12')">RCS</li>
+              <li @click="scrollToImage('image18')">서비스 요금</li>
+              <li @click="scrollToImage('image19')">톡톡샵 플랫폼</li>
             </ul>
           </li>
           <li @click="toggleSubmenu('procedure')">
             서비스 이용절차
             <span class="arrow">{{ activeSubmenu === 'procedure' ? '▲' : '▼' }}</span>
             <ul v-if="activeSubmenu === 'procedure'" class="submenu">
-              <li @click="scrollToImage('image14')">메시지 서비스 이용절차</li>
-              <li @click="scrollToImage('image15')">기프티콘 서비스 이용절차</li>
+              <li @click="scrollToImage('image22')">메시지 서비스 이용절차</li>
+              <li @click="scrollToImage('image23')">기프티콘 서비스 이용절차</li>
             </ul>
           </li>
           <li @click="scrollToSection('footer')">contact us</li>
@@ -54,30 +54,30 @@
         <button class="menu-btn" @click="toggleSidebar">☰</button>
       </div>
       <div class="image-container" ref="imageContainer">
-        <img ref="main" :src="getImageSrc('main.jpg', 'main.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image2" :src="getImageSrc('02.jpg', '02.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image3" :src="getImageSrc('04.jpg', '04.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image1" :src="getImageSrc('05.jpg', '05.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image4" :src="getImageSrc('06.jpg', '06.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image5" :src="getImageSrc('07.jpg', '07.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image6" :src="getImageSrc('08.jpg', '08.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image7" :src="getImageSrc('09.jpg', '09.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image8" :src="getImageSrc('10.jpg', '10.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image9" :src="getImageSrc('11.jpg', '11.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image10" :src="getImageSrc('12.jpg', '12.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image11" :src="getImageSrc('13.jpg', '13.jpg')" alt="Company Image" class="full-image" /> 
-        <img ref="image12" :src="getImageSrc('14.jpg', '14.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image13" :src="getImageSrc('15.jpg', '15.jpg')" alt="Company Image" class="full-image" />  
-        <img ref="image14" :src="getImageSrc('16.jpg', '16.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image15" :src="getImageSrc('17.jpg', '17.jpg')" alt="Company Image" class="full-image" /> 
-        <img ref="image16" :src="getImageSrc('18.jpg', '18.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image17" :src="getImageSrc('19.jpg', '19.jpg')" alt="Company Image" class="full-image" /> 
-        <img ref="image18" :src="getImageSrc('20.jpg', '20.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image19" :src="getImageSrc('21.jpg', '21.jpg')" alt="Company Image" class="full-image" /> 
-        <img ref="image20" :src="getImageSrc('22.jpg', '22.jpg')" alt="Company Image" class="full-image" /> 
-        <img ref="image21" :src="getImageSrc('23.jpg', '23.jpg')" alt="Company Image" class="full-image" /> 
-        <img ref="image22" :src="getImageSrc('24.jpg', '24.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image23" :src="getImageSrc('25.jpg', '25.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="main" :src="getImageSrc('mobile_01.jpg', 'main.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image2" :src="getImageSrc('mobile_02.jpg', '02.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image3" :src="getImageSrc('mobile_03.jpg', '04.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image1" :src="getImageSrc('mobile_04.jpg', '05.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image4" :src="getImageSrc('mobile_05.jpg', '06.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image5" :src="getImageSrc('mobile_06.jpg', '07.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image6" :src="getImageSrc('mobile_07.jpg', '08.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image7" :src="getImageSrc('mobile_08.jpg', '09.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image8" :src="getImageSrc('mobile_09.jpg', '10.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image9" :src="getImageSrc('mobile_10.jpg', '11.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image10" :src="getImageSrc('mobile_11.jpg', '12.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image11" :src="getImageSrc('mobile_12.jpg', '13.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image12" :src="getImageSrc('mobile_13.jpg', '14.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image13" :src="getImageSrc('mobile_14.jpg', '15.jpg')" alt="Company Image" class="full-image" />  
+        <img ref="image14" :src="getImageSrc('mobile_15.jpg', '16.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image15" :src="getImageSrc('mobile_16.jpg', '17.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image16" :src="getImageSrc('mobile_17.jpg', '18.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image17" :src="getImageSrc('mobile_18.jpg', '19.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image18" :src="getImageSrc('mobile_19.jpg', '20.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image19" :src="getImageSrc('mobile_20.jpg', '21.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image20" :src="getImageSrc('mobile_21.jpg', '22.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image21" :src="getImageSrc('mobile_22.jpg', '23.jpg')" alt="Company Image" class="full-image" /> 
+        <img ref="image22" :src="getImageSrc('mobile_23.jpg', '24.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image23" :src="getImageSrc('mobile_24.jpg', '25.jpg')" alt="Company Image" class="full-image" /> 
         <div id="map" class="map"></div>
         <footer ref="footer" class="footer">
           <div class="footer-left">
@@ -323,7 +323,7 @@ nav ul li {
 }
 
 .map {
-  height: 500px; /* 지도의 높이 설정 */
+  height: 550px; /* 지도의 높이 설정 */
   width: 100%;
 }
 
