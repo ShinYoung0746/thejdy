@@ -371,7 +371,8 @@ nav ul li {
 .scroll-top {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 50%;
+  transform: translateX(50%);
   background-color: #333;
   color: #fff;
   border: none;
