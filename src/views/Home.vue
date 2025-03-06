@@ -63,8 +63,8 @@
         <img ref="image6" :src="getImageSrc('mobile_07.jpg', '08.jpg')" alt="Company Image" class="full-image" />
         <img ref="image7" :src="getImageSrc('mobile_08.jpg', '09.jpg')" alt="Company Image" class="full-image" />
         <img ref="image8" :src="getImageSrc('mobile_09.jpg', '10.jpg')" alt="Company Image" class="full-image" />
-        <!-- <img ref="image9" :src="getImageSrc('mobile_10.jpg', '11.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image10" :src="getImageSrc('mobile_11.jpg', '12.jpg')" alt="Company Image" class="full-image" />
+        <img ref="image9" :src="getImageSrc('mobile_10.jpg', '11.jpg')" alt="Company Image" class="full-image" />
+        <!-- <img ref="image10" :src="getImageSrc('mobile_11.jpg', '12.jpg')" alt="Company Image" class="full-image" />
         <img ref="image11" :src="getImageSrc('mobile_12.jpg', '13.jpg')" alt="Company Image" class="full-image" /> 
         <img ref="image12" :src="getImageSrc('mobile_13.jpg', '14.jpg')" alt="Company Image" class="full-image" />
         <img ref="image13" :src="getImageSrc('mobile_14.jpg', '15.jpg')" alt="Company Image" class="full-image" />  
