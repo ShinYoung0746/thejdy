@@ -9,7 +9,7 @@
             회사소개
             <span class="arrow">{{ activeSubmenu === 'company' ? '▲' : '▼' }}</span>
             <ul v-if="activeSubmenu === 'company'" class="submenu">
-              <li @click="scrollToImage('image2')">목차</li>
+              <!-- <li @click="scrollToImage('image2')">목차</li> -->
               <li @click="scrollToImage('image3')">주요 연혁</li>
               <li @click="scrollToImage('image1')">조직도</li>
             </ul>
@@ -55,7 +55,7 @@
       </div>
       <div class="image-container" ref="imageContainer">
         <img ref="main" :src="getImageSrc('mobile_01.jpg', 'main.jpg')" alt="Company Image" class="full-image" />
-        <img ref="image2" :src="getImageSrc('mobile_02.jpg', '02.jpg')" alt="Company Image" class="full-image" />
+        <!-- <img ref="image2" :src="getImageSrc('mobile_02.jpg', '02.jpg')" alt="Company Image" class="full-image" /> -->
         <img ref="image3" :src="getImageSrc('mobile_03.jpg', '04.jpg')" alt="Company Image" class="full-image" />
         <img ref="image1" :src="getImageSrc('mobile_04.jpg', '05.jpg')" alt="Company Image" class="full-image" />
         <img ref="image4" :src="getImageSrc('mobile_05.jpg', '06.jpg')" alt="Company Image" class="full-image" />
